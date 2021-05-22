@@ -22,3 +22,5 @@ An example of how to use Spring HATEOAS to create a hypermedia-driven RESTAPI - 
 **DemoVertx4FunFrontendService**,
 **DemoVertx4FunRandomNumberService**,
 **DemoVertx4FunSaySomethingService**
+
+*(this document is still being updated...)*
