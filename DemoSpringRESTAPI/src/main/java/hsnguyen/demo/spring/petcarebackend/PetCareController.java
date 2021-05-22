@@ -54,7 +54,7 @@ import hsnguyen.demo.spring.petcarebackend.jpa.PetJPARepository;
  * and apply best practices.
  * <br/><br/>
  * @author	Nguyen, Hung (Howie)
- * @since	May 2021 
+ * @since	2021 
 */
 
 // To check this API, you can use RESTAPI Client such as Postman API Client or curl or HTTPie,...
