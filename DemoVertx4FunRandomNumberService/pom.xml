@@ -1,0 +1,97 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>howie.demo</groupId>
+	<artifactId>DemoVertxSaySomethingService</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<packaging>jar</packaging>
+
+	<name>DemoVertxSaySomethingService</name>
+	<description>Demo</description>
+	<properties>
+		<maven.compiler.source>11</maven.compiler.source>
+		<maven.compiler.target>11</maven.compiler.target>
+		<vertx.version>4.0.3</vertx.version>
+	</properties>
+
+	<dependencies>
+		<dependency>
+			<groupId>io.vertx</groupId>
+			<artifactId>vertx-hazelcast</artifactId>
+			<version>${vertx.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>io.vertx</groupId>
+			<artifactId>vertx-core</artifactId>
+			<version>${vertx.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>io.vertx</groupId>
+			<artifactId>vertx-web</artifactId>
+			<version>${vertx.version}</version>
+		</dependency>
+
+		<dependency>
+		    <groupId>io.vertx</groupId>
+		    <artifactId>vertx-health-check</artifactId>
+		    <version>${vertx.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.apache.logging.log4j</groupId>
+			<artifactId>log4j-slf4j-impl</artifactId>
+			<version>2.14.0</version>
+		</dependency>
+		
+		<dependency>
+			<!--Junit 5 doesn't support assertThat() anymore
+			  Instead, use the built-in support for matchers provided by third-party assertion libraries such as Hamcrest-->
+		  <groupId>org.hamcrest</groupId>
+		  <artifactId>hamcrest</artifactId>
+		  <version>2.2</version>
+		  <scope>test</scope>
+		</dependency>
+
+		<dependency>
+			<!-- support for writing Vert.x (asynchronous) tests with JUnit 5 -->
+		 	<groupId>io.vertx</groupId>
+		  	<artifactId>vertx-junit5</artifactId>
+		  	<version>4.0.3</version>
+		 	 <scope>test</scope>
+		</dependency>		
+		
+	</dependencies>
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-shade-plugin</artifactId>
+				<version>2.3</version>
+				<executions>
+					<execution>
+						<phase>package</phase>
+						<goals>
+							<goal>shade</goal>
+						</goals>
+						<configuration>
+							<transformers>
+								<transformer
+									implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
+									<manifestEntries>
+										<Main-Class>io.vertx.core.Launcher</Main-Class>
+										<Main-Verticle>hsnguyen.demo.vertxservice1.VerticleService1</Main-Verticle>
+									</manifestEntries>
+								</transformer>
+							</transformers>
+							<artifactSet />
+							<outputFile>${project.build.directory}/${project.artifactId}-shaded.jar
+							</outputFile>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+		</plugins>
+	</build>
+
+</project>
