@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="es" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+	<meta charset="UTF-8">
+
+	<script type="text/javascript" th:src="@{/webjars/jquery/3.5.1/jquery.min.js/}"></script>
+	<script type="text/javascript" th:src="@{/webjars/bootstrap/4.6.0/js/bootstrap.min.js}"></script>
+
+	<title>Demo-SpringBoot SSO, OAuth2/OpenID Connect</title>
+    
+	<link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/4.6.0/css/bootstrap.min.css}" />
+</head>
+<body>
+    <h1>SpringBoot SSO by OAuth2 and OpenID Connect Demo -- Logged out</h1>
+
+    <div>You've just logged out of this application!!!</div>
+    <div>In order to do Single Logout (SLO), ie logging out of the SSO service provider. You can go to the SSO service provider page and sign out from there</div>
+    
+    <br/>
+    <div style="margin-left: 20px;"><a href="/" class="btn btn-secondary">Home page</a></div>
+</body>
+</html>

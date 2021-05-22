@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="es" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+	<meta charset="UTF-8">
+	<script type="text/javascript" th:src="@{/webjars/jquery/3.5.1/jquery.min.js/}"></script>
+	<script type="text/javascript" th:src="@{/webjars/bootstrap/4.6.0/js/bootstrap.min.js}"></script>
+
+	<title>Demo-SpringBoot SSO, OAuth2/OpenID Connect</title>
+    
+	<link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/4.6.0/css/bootstrap.min.css}" />
+</head>
+<body>
+    <h1>SpringBoot SSO by OAuth2 and OpenID Connect Demo -- Signed in</h1>
+    <h2>Welcome! You've signed in successfully</h2>
+    
+    <div>Client Registration Name: <span style="font-style: italic;" th:text="${clientRegistrationName}"></span></div>
+    <div>User id: <span style="font-style: italic;" th:text="${userName}"></span></div>
+    <div>User attributes: <span style="font-style: italic;" th:text="${userAttributes}"></span></div>
+    <br/>
+    <div>Access Token returned from the Authentication server: 
+    <p style="margin-left: 10px"><span th:text="${accessToken}"></span></p>
+    <p style="margin-left: 10px"><b>Decoded</b>: <span th:text="${accessDecodedToken}"></span></p>
+    </div> 
+    <br/>
+   
+    <div><a href="/" class="btn btn-secondary" style="margin-left: 20px;">Home Page</a></div>
+	<br/>
+   	 <!--/* help protect against CSRF attacks, use POST and CSRF token. If logged in, show the logout button */-->
+   	 <div sec:authorize="isAuthenticated()" style="margin-left: 20px;">
+   	     <form method="post" th:action="@{/logout}" class="navbar-form navbar-right">
+                <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}" />
+                <button id="logout-button" type="submit" class="btn btn-danger">Logout</button>
+         </form>
+	</div>
+
+
+</body>
+</html>
