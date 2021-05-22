@@ -1,0 +1,27 @@
+server:
+  port: 8081
+spring:
+  #autoconfigure:
+    #exclude: org.springframework.boot.autoconfigure.security.SecurityAutoConfiguration, org.springframework.boot.actuate.autoconfigure.ManagementWebSecurityAutoConfiguration
+  thymeleaf:
+    cache: false
+  security:  
+    oauth2:  
+      client:  
+        registration:
+          #In practice, credentials such as a client-secret shouldn't be stored in source code. 
+          #Using the Externalized Configuration feature of Spring to resolve the problem with storing credentials
+          #Or if the app is deployed to a Kubernetes enviroment, you can adopt the feature Secrets to store client-secret and other credentials
+          okta:  
+            client-id: xxxxxxxxxxxxxxxxx
+            client-secret: xxxxxxxxxxxxxxxxxxxxxxxxxx
+            client-name: Okta
+        provider:  
+          okta:
+            #issuer-uri:  https://dev-xxxxx.okta.com/oauth2/default
+            authorization-uri: https://dev-xxxxx.okta.com/oauth2/default/v1/authorize
+            token-uri: https://dev-xxxxx.okta.com/oauth2/default/v1/token
+            user-info-uri: https://dev-xxxxx.okta.com/oauth2/default/v1/userinfo
+            jwk-set-uri: https://dev-xxxxx.okta.com/oauth2/default/v1/keys
+            user-name-attribute: sub
+
