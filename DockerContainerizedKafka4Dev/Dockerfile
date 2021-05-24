@@ -42,7 +42,7 @@ RUN apt-get install -y supervisor
 COPY supervisord.conf /etc/supervisor/conf.d/supervisord.conf
 
 #Fix the issue "org.apache.kafka.clients.NetworkClient AdminClient Error connecting to node 9092 rack null" when apps connect to it
-RUN sed -i 's+#listeners=PLAINTEXT://:9092+listeners=PLAINTEXT://localhost:9092+g' server.properties
+RUN sed -i 's+#listeners=PLAINTEXT://:9092+listeners=PLAINTEXT://localhost:9092+g' $KAFKA_HOME/config/server.properties
 
 #Kafka port 9092 by default 
 EXPOSE 9092
