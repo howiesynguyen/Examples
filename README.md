@@ -23,4 +23,6 @@ An example of how to use Spring HATEOAS to create a hypermedia-driven RESTAPI - 
 **DemoVertx4FunRandomNumberService**,
 **DemoVertx4FunSaySomethingService**
 
+**DockerContainerizedKafka4Dev** An Apache Kafka setup using Docker for development purposes
+
 *(this document is still being updated...)*

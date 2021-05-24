@@ -1,5 +1,4 @@
-#An Apache Kafka setup using Docker for development purposes
-
+**An Apache Kafka setup using Docker for development purposes**
 
 At this time Kafka (version 2.8.0 and earlier) still requires ZooKeeper. To keep it simple, a single image is used for both ZooKeeper and Kafka
 
@@ -23,5 +22,3 @@ If it is started successfully, you may see something like this:
         2021-05-24 08:49:29,488 INFO spawned: 'kafka' with pid 10
         2021-05-24 08:49:30,538 INFO success: zookeeper entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
         2021-05-24 08:49:30,538 INFO success: kafka entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
-
-
