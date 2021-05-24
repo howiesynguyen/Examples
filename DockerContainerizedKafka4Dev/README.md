@@ -6,11 +6,12 @@ At this time Kafka (version 2.8.0 and earlier) still requires ZooKeeper. To keep
 To build an image and run a container, execute the following commands:
 
 $ docker build -t image_name .
+
 $ docker run -p 9092:9092 image_name
 
 If it is started successfully, you may see something like this:
 
-    $ docker run -p 9092:9092 --name howieskafka howieskafka
+    $ docker run -p 9092:9092 --name kafka4dev kafka4dev
         /usr/lib/python2.7/dist-packages/supervisor/options.py:461: UserWarning: Supervisord is running as root and it is searching for its configuration file in default locations (including its current working directory); you probably want to specify a "-c" argument specifying an absolute path to a configuration file for improved security.
           'Supervisord is running as root and it is searching '
         2021-05-24 08:49:28,475 CRIT Supervisor is running as root.  Privileges were not dropped because no user is specified in the config file.  If you intend to run as root, you can set user=root in the config file to avoid this message.
