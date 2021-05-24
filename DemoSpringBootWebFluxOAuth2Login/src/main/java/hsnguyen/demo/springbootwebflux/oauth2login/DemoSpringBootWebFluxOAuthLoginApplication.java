@@ -12,6 +12,12 @@
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and
  * limitations under the License.
+ *
+ * ===========================================================
+ * Note: This is just an example and it should be used as a reference for learning purposes. 
+ * The design and implementation are kept simple as much as possible. 
+ * The example may ignore some concerns such as unit testing, error handling, logging, and etc… 
+ * It may not be a good practice, but hopefully it could give you some ideas 
  *******************************************************************************/
 package hsnguyen.demo.springbootwebflux.oauth2login;
 
