@@ -27,7 +27,6 @@ RUN apt-get update -y
 
 #Once zookeeper installation is finished, it will be started as a daemon automatically
 RUN apt-get install -y zookeeper 
-#RUN /usr/share/zookeeper/bin/zkServer.sh start-foreground
 
 RUN apt-get install -y wget
 RUN wget -q https://downloads.apache.org/kafka/$KAFKA_VERSION/$KAFKA_TGZ_FILE -O /tmp/$KAFKA_TGZ_FILE
@@ -35,14 +34,13 @@ RUN mkdir $KAFKA_HOME
 RUN tar xfz /tmp/$KAFKA_TGZ_FILE --strip-components 1 -C $KAFKA_HOME 
 RUN rm /tmp/$KAFKA_TGZ_FILE
 
-RUN apt-get clean
-
 #Install Supervisor that is used get Zookeeper and Kafka processes started in order. Supervisor is to help managers background processes/services
 RUN apt-get install -y supervisor
 COPY supervisord.conf /etc/supervisor/conf.d/supervisord.conf
 
-#Fix the issue "org.apache.kafka.clients.NetworkClient AdminClient Error connecting to node 9092 rack null" when apps connect to it
-RUN sed -i 's+#listeners=PLAINTEXT://:9092+listeners=PLAINTEXT://localhost:9092+g' $KAFKA_HOME/config/server.properties
+ADD kafka-start.sh /usr/bin/kafka-start.sh
+
+RUN apt-get clean
 
 #Kafka port 9092 by default 
 EXPOSE 9092
@@ -50,5 +48,4 @@ EXPOSE 9092
 #Zookeeper port 2181 by default 
 EXPOSE 2181 
 
-
-CMD ["/usr/bin/supervisord"]
+CMD ["/usr/bin/kafka-start.sh"]
