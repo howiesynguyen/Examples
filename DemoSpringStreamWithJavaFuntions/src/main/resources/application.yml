@@ -1,0 +1,19 @@
+spring:
+  cloud:
+    function:
+      #be aware that not using any space in definition      definition: currentTime;formatDateTime;receiveMessage
+      #you can also try sayHelloAndTime in addition, it will require further bindings configuration
+    stream:
+      bindings:
+        currentTime-out-0:
+          destination: time
+        formatDateTime-in-0:
+          destination: time
+        formatDateTime-out-0:
+          destination: formatted
+        receiveMessage-in-0:
+          destination: formatted          
+      kafka:
+        binder:
+          brokers: localhost:9092
+          #replicationFactor: 1
