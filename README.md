@@ -23,6 +23,8 @@ An example of how to use Spring HATEOAS to create a hypermedia-driven RESTAPI - 
 **DemoVertx4FunRandomNumberService**,
 **DemoVertx4FunSaySomethingService**
 
+**DemoSpringStreamWithJavaFuntions** This example shows you how to use Spring Cloud Stream with Java Functions in favor of functional programming. "Spring Cloud Stream is a framework for building highly scalable event-driven microservices connected with shared messaging systems" (spring.io).
+
 **DockerContainerizedKafka4Dev** An Apache Kafka setup using Docker for development purposes
 
 *(this document is still being updated...)*
