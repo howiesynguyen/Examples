@@ -22,7 +22,7 @@
 package hsnguyen.demo.Calculator;
 
 public class Calculator {
-	public static final String OPERATOR_ADDITION = "SUBTRACTION";
+	public static final String OPERATOR_ADDITION = "ADDITION";
 	public static final String OPERATOR_SUBTRACTION = "SUBTRACTION";
 	public static final String OPERATOR_DIVISION = "DIVISION";
 	public static final String OPERATOR_MULTIPLICATION = "MULTIPLICATION";
