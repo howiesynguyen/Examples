@@ -37,6 +37,6 @@ The example provides a simple calculator via an HTTP server that accepts JSON re
 for example, HTTP POST: {"operator":"SUBTRACTION", "a":1, "b":2} </br>
 and then return a JSON response, for example {"result":3.0, "operator":"SUBTRACTION", "a":1.0, "b":2.0}
 
-Try executing JUnit Test class CalculatorTest to see how it runs
+Try executing JUnit Test class CalculatorTest to see how to run it
 
 *(this document is still being updated...)*
