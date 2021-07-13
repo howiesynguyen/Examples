@@ -10,7 +10,7 @@ To build an image and run a container, execute the following commands:
 
 $ docker build -t kafka4dev .
 
-docker run -p 2181:2181 -p 9092:9092 --env ADVERTISED_LISTENERS=<hostname>:9092 --name kafka4dev kafka4dev
+docker run -p 2181:2181 -p 9092:9092 --env ADVERTISED_LISTENERS=&lt;hostname&gt;:9092 --name kafka4dev kafka4dev
 
 If it is started successfully, you may see something like this:
 
