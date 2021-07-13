@@ -1,5 +1,9 @@
 **An Apache Kafka setup using Docker for development purposes**
 
+Author: Howie S. Nguyen
+
+Since: June 2021
+
 At this time Kafka (version 2.8.0 and earlier) still requires ZooKeeper. To keep it simple, a single image is used for both ZooKeeper and Kafka
 
 To build an image and run a container, execute the following commands:
@@ -31,11 +35,13 @@ The following is an example of a configuration from a Spring Boot with Spring Cl
 
 ```
 application.yml
+
 spring:
-  cloud:
-    stream:
-      kafka:
-        binder:
-          brokers: localhost:9092
-          replicationFactor: 1
+   kafka:
+     producer:
+        bootstrap-servers: localhost:9092
+     consumer:
+        bootstrap-servers: localhost:9092
+        group-id: demogroup
+        auto-offset-reset: earliest
 ```
